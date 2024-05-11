@@ -12,7 +12,7 @@ metadata:
     prometheus.io/port: {{ .Values.monitoring.service.port | quote }}
     ##  
   {{- if .Values.service.annotations }}
-  {{ toYaml .Values.service.annotations | indent 2 }}  
+{{ toYaml .Values.service.annotations | indent 4 }}
   {{ end }}    
   labels:
     app.kubernetes.io/name: {{ template "dockermailserver.fullname" . }}
@@ -91,7 +91,7 @@ spec:
   loadBalancerIP: {{ .Values.service.loadBalancer.publicIp }}
   {{ if .Values.service.loadBalancer.allowedIps -}}
   loadBalancerSourceRanges:
-  {{ .Values.service.loadBalancer.allowedIps | toYaml | indent 4 }}
+{{ .Values.service.loadBalancer.allowedIps | toYaml | indent 6 }}
   {{ end -}}
   {{ end -}}
   {{ end }}

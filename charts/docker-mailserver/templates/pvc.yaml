@@ -6,7 +6,7 @@ metadata:
   name: {{ template "dockermailserver.fullname" . }}
   {{- if .Values.persistence.annotations }}
   annotations:
-  {{ toYaml .Values.persistence.annotations | indent 2 }}  
+{{ toYaml .Values.persistence.annotations | indent 4 }}  
   {{ end }}
 spec:
   accessModes:
